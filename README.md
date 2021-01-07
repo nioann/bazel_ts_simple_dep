@@ -9,7 +9,9 @@ Fix:
 In the nodejs_binary targets add one of the two following parameters:
 
 - templated_args = ["--bazel_patch_module_resolver"]
+
 OR
+
 - link_workspace_root = True
 
 # Project setup

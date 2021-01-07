@@ -17,7 +17,8 @@ nodejs_binary(
         ":main1",
     ],
     entry_point = ":main.ts",
-    # install_source_map_support = False,
+    # Fix 1 for: https://github.com/bazelbuild/rules_nodejs/issues/2388
+    templated_args = ["--bazel_patch_module_resolver"]
 )
 
 ts_library(
@@ -43,5 +44,6 @@ nodejs_binary(
         ":main2",
     ],
     entry_point = ":main.ts",
-    # install_source_map_support = False,
+    # Fix 2 for: https://github.com/bazelbuild/rules_nodejs/issues/2388
+    link_workspace_root = True
 )

@@ -5,14 +5,14 @@
     "devDependencies": {
         "@bazel/bazelisk": "latest",
         "@bazel/buildifier": "latest",
-        "@bazel/ibazel": "latest"
+        "@bazel/ibazel": "latest",
+        "@bazel/typescript": "^3.0.0",
+        "typescript": "^4.1.3"
     },
     "scripts": {
         "build": "bazel build //...",
         "test": "bazel test //..."
     },
     "dependencies": {
-        "@bazel/typescript": "^3.0.0",
-        "typescript": "^4.1.3"
     }
 }

@@ -2,7 +2,7 @@ package(default_visibility = ["//visibility:public"])
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
 
 ts_library(
-    name = "main",
+    name = "main1",
     srcs = [
       "main.ts",
       "buz.ts"
@@ -12,9 +12,35 @@ ts_library(
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 nodejs_binary(
-    name = "bin",
+    name = "bin1",
     data = [
-        ":main",
+        ":main1",
+    ],
+    entry_point = ":main.ts",
+    # install_source_map_support = False,
+)
+
+ts_library(
+    name = "main2",
+    srcs = [
+      "main.ts",
+    ],
+    deps = [
+      ":buz",
+    ]
+)
+
+ts_library(
+    name = "buz",
+    srcs = [
+      "buz.ts",
+    ],
+)
+
+nodejs_binary(
+    name = "bin2",
+    data = [
+        ":main2",
     ],
     entry_point = ":main.ts",
     # install_source_map_support = False,
